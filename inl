@@ -1,64 +1,64 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>移动端数控代码生成器</title>
+<!文档类型超文本标记语言 >
+<超文本标记语言 语言=“zh-CN”>
+<头>
+    <自指的 字符集=“UTF八号"">
+    <自指的 名字="视窗" 内容=宽度=设备宽度，初始比例=1.0=设备宽度，初始比例=1.0=设备宽度，初始比例=1.0>
+    <标题>移动端数控代码生成器</标题>
     
-    <!-- 引入文件二的CSS和JS资源 -->
-    <link rel="stylesheet" href="../css/h5ui.min.css">
-    <link rel="stylesheet" href="../css/example.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../css/sort.css">
-    <link rel="stylesheet" type="text/css" href="../css/animation.css">
+<!-引入文件二的半铸钢ˌ钢性铸铁(铸造半钢)和射流研究…资源 - >
+    <环 能量损耗率="样式表" href="../css/h5ui.min.css ">
+    <环 能量损耗率="样式表" href="../css/example.min.css ">
+    <环 能量损耗率="样式表" 类型="文本/css " href="../css/reset.css ">
+    <环 能量损耗率="样式表" 类型="文本/css " href="../css/sort.css ">
+    <环 能量损耗率="样式表" 类型="文ben/CSS» href="../css/animation.css ">
     
-    <!-- 引入文件二的JS库 -->
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/h5ui.min.js"></script>
-    <script src="../js/base64.min.js"></script>
-    <script src="../js/math.js"></script>
-    <script src="../js/jquery.mobile-1.4.5.min.js"></script>
-    <script src="../js/zepto.min.js"></script>
-    <script src="../js/Sortable.js"></script>
+    <!-引入文件二的射流研究…库 - >
+    <脚本 科学研究委员会=~/js/jQuery.min.js
+"../js/h5ui.min.js "../js/h5ui.min.js "></脚本>
+    <脚本 科学研究委员会="../js/base64.min.js "></脚本>
+    <脚本 科学研究委员会="../js/math.js "></脚本>
+    <脚本 科学研究委员会="../js/jquery.mobile-1.4.5.min.js "></script>
+    <脚本 科学研究委员会="../js/zepto.min.js "></脚本>
+    <脚本 科学研究委员会="../js/Sortable.js "></脚本>
 
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
+    <风格>
+正文{body {
+font-family: -apple-system，BlinkMacSystemFont，“Segoe UI”，Roboto，Helvetica，Arial，sans-serif；font-family: -apple-system，BlinkMacSystemFont，“Segoe UI”，Roboto，Helvetica，Arial，sans-serif；
+背景色:# f5f 7 fa背景色:# f5f 7 fa
+颜色:# 333;颜色:# 333；
+边距:0;边距:0；
+填充:0；
+身高:100vh
+显示器:flex
+伸缩方向:列；
             font-size: 14px; /* 添加基础字体大小 */
         }
         
-        h1 {
-            display: none;
+h1 {
+显示:无；
         }
         
-        .main-container {
-            display: flex;
-            flex: 1;
-            padding: 5px;
-            gap: 5px;
-            position: relative;
-            overflow: hidden;
+。主容器{
+显示器:flex
+flex:1；
+填充:5px
+差距:5px
+位置:相对；
+溢出:隐藏；
         }
         
-        .left-panel {
-            flex: 1.5;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            position: relative;
-            min-width: 45%;
+。左侧面板{
+flex:1.5；
+显示器:flex
+伸缩方向:列；
+差距:5px
+位置:相对；
+最小宽度:45%；
         }
         
-        .right-panel {
-            flex: 2.5;
-            display: flex;
+。右面板{
+flex:2.5；
+显示器:flex
             flex-direction: column;
             position: relative;
         }
@@ -66,10 +66,10 @@
         .fixed-top {
             background: white;
             padding: 10px;
-            z-index: 10;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+z指数:10；
+位置:粘性；
+top:0；
+box-shadow: 0 2px 5px rgba(0，0，0，0.1)；
         }
         
         .fixed-bottom {
@@ -123,23 +123,23 @@
         .button-group button {
             flex: 1;
             border-radius: 4px;
-            font-weight: 500;
-            font-size: 14px; /* 添加字体大小 */
+字体粗细:500；
+字体大小:14px/* 添加字体大小 */
         }
         
         /* 控制按钮新样式 - 修改位置 */
-        .control-buttons-container {
-            position: absolute;
+。控制按钮容器{
+位置:绝对；
             /* 关键修改：向上移动一个按钮的高度 */
-            bottom: 30px; /* 原为0 */
-            right: 0;
-            width: 100%;
-            height: 60px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 5px;
-            padding: 5px;
+底部:30px/* 原为0 */
+右:0；
+宽度:100%；
+高度:60px
+显示:网格；
+网格-模板-列:重复(3，1fr)；
+网格-模板-行:重复(2，1fr)；
+差距:5px
+填充:5px
             background: white;
             border-top: 1px solid #ddd;
             box-sizing: border-box;
@@ -1133,4 +1133,5 @@
         });
     </script>
 </body>
+
 </html>
